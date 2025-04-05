@@ -11,7 +11,7 @@ st.set_page_config(page_title="蒙药数据库查询系统", layout="wide")
 # 加载数据
 @st.cache_data
 def load_data():
-    file_path = "D:\\mysjk\\processed_mongolian_medicine_data.csv"
+    file_path = "D:\\mysjk\\mongolian_medicine_data_test.csv"
     df = pd.read_csv(file_path)
     return df
 
@@ -44,9 +44,7 @@ query_type = st.selectbox("选择查询条件类型:", [
 
 # 根据查询类型创建输入框
 if query_type in ["ESI_Ion Mode_Plus", "ESI_Ion Mode_Minus"]:
-    # 为离子模式提供下拉选项
-    possible_values = ["[M-H]-", "[M+H]+", "[2M-H]-", "-"]
-    query_value = st.selectbox("选择值:", possible_values)
+    query_value = st.selectbox("选择值:", ["[M-H]-", "[M+H]+", "[2M-H]-", "-"])
 else:
     query_value = st.text_input("输入值:")
 
@@ -65,7 +63,7 @@ if query_button:
         results = df[df[query_type] == query_value]
     else:
         # 转换为字符串进行比较
-        results = df[df[query_type].astype(str).str.contains(query_value, na=False)]
+        results = df[df[query_type].astype(str).str.contains(query_value)]
 
     # 显示结果
     if not results.empty:
@@ -85,7 +83,7 @@ if query_button:
             st.write("结构式:")
             image = get_structure_image(row['SMILES'])
             if image:
-                st.image(image, use_container_width=True)
+                st.image(image, use_container_width=True)  # 修改后的代码
             else:
                 st.write("无法获取结构式图像")
             
