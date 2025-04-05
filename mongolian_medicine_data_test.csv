@@ -1,0 +1,6 @@
+﻿ID,Compound Name,Formula,ESI_Ion Mode_Plus,ESI_Calcm/z_Plus,ESI_Fragment ions(m/z)_Plus,ESI_Ion Mode_Minus,ESI_Calcm/z_Minus,ESI_Fragment ions(m/z)_Minus,CAS,SMILES,Compound Class,Compound Source,Reference,Remark
+1,Baicalein 7-O-glucuronide,C21H18O11,[M-H]-,445.0776,269,[M+H]+,447.0922,271,21967-41-9,OC1=C(O)C(O[CH]2O[CH](C([OH2+])=O)[CH](O)[CH](O)[CH]2O)=CC(OC(C3=CC=CC=C3)=C4)=C1C4=O,Flavonoid glycoside,Scutellaria baicalensis,"LTQ Orbitrap, Leaf","1, 3"
+2,Puerarin,C21H20O10,[M-H]-,431.0984,269,[M+H]+,433.1129,271,3681-99-0,O=C1C(C=C2)=C(OC=C1C3=CC=C(O)C=C3)C(O[CH]4O[CH](CO)[CH](O)[CH](O)[CH]4O)=C2O,Flavonoid glycoside,Puerariae lobata,-,3
+,,,[2M-H]-,863.1968,"431, 269",-,-,-,,,,,,2
+3,Glycyrrhizic acid,C42H62O16,[M-H]-,821.3965,"645, 469",[M+H]+,823.4111,"647, 471",1405-86-3,C[C]([C](CC[C](CC1)(C)[C]2([H])C[C]1(C)C(O)=O)(C)C2=C3)(CC4)[C](C3=O)([H])[C]5(C)[C]4([H])C(C)(C)[CH](O[CH](O[CH]6C(O)=O)[CH]([CH](O)[CH]6O)O[CH]7O[CH](C(O)=O)[CH](O)[CH](O)[CH]7O)CC5,Saponin,Glycyrrhiza uralensis,"QQQ, Leaf",2
+4,Berberine,C20H18NO4,-,-,-,[M]+,336.123,"320, 292",2086-83-1,COC1=C(OC)C=CC2=C1C=[N+](CC3)C(C4=C3C=C5C(OCO5)=C4)=C2,Alkaloid,Coptis chinensis,"Qtrap, Flower",3
