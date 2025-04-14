@@ -11,7 +11,7 @@ st.set_page_config(page_title="蒙药数据库查询系统", layout="wide")
 # 加载数据
 @st.cache_data
 def load_data():
-    file_path = "D:\\mysjk\\mongolian_medicine_data_test.csv"
+    file_path = "D:\\mysjk\\mongolian_medicine_data.csv"
     df = pd.read_csv(file_path)
     return df
 
@@ -38,28 +38,23 @@ st.write("请输入查询条件:")
 
 # 创建查询条件选择
 query_type = st.selectbox("选择查询条件类型:", [
-    "ESI_Ion Mode_Plus", "ESI_Calcm/z_Plus", "ESI_Fragment ions(m/z)_Plus",
-    "ESI_Ion Mode_Minus", "ESI_Calcm/z_Minus", "ESI_Fragment ions(m/z)_Minus"
+    "ESI_Ion_Mode_Plus", "ESI_Calcm/z_Plus", "ESI_Fragment_ions(m/z)_Plus",
+    "ESI_Ion_Mode_Minus", "ESI_Calcm/z_Minus", "ESI_Fragment_ions(m/z)_Minus"
 ])
 
 # 根据查询类型创建输入框
-if query_type in ["ESI_Ion Mode_Plus", "ESI_Ion Mode_Minus"]:
+if query_type in ["ESI_Ion_Mode_Plus", "ESI_Ion_Mode_Minus"]:
     query_value = st.selectbox("选择值:", ["[M-H]-", "[M+H]+", "[2M-H]-", "-"])
 else:
     query_value = st.text_input("输入值:")
 
-# 查询按钮和重置按钮
+# 查询按钮
 query_button = st.button("查询")
-reset_button = st.button("重置")
-
-# 处理重置按钮
-if reset_button:
-    st.experimental_rerun()
 
 # 执行查询
 if query_button:
     # 根据查询类型和值筛选数据
-    if query_type in ["ESI_Ion Mode_Plus", "ESI_Ion Mode_Minus"]:
+    if query_type in ["ESI_Ion_Mode_Plus", "ESI_Ion_Mode_Minus"]:
         results = df[df[query_type] == query_value]
     else:
         # 转换为字符串进行比较
@@ -76,8 +71,8 @@ if query_button:
             st.write(f"SMILES: {row['SMILES']}")
             st.write(f"化合物类别: {row['Compound Class']}")
             st.write(f"来源: {row['Compound Source']}")
-            st.write(f"参考: {row['Reference']}")
-            st.write(f"备注: {row['Remark']}")
+            st.write(f"参考: {row['Ref']}")
+            st.write(f"备注: {row['Note']}")
             
             # 显示结构式图像
             st.write("结构式:")
